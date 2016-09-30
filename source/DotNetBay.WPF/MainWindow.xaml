@@ -1,0 +1,23 @@
+﻿<Window x:Class="DotNetBay.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DotNetBay.WPF"
+        d:DataContext="{d:DesignInstance Type=local:MainWindow}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+ 
+
+        <StackPanel HorizontalAlignment="Left">
+            <Button>New Auction</Button>
+            
+        <DataGrid Name="AuctionsDataGrid" Grid.Row="1" ItemsSource="{Binding App.Auctions}" 
+              AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="AuctionsDataGrid_SelectionChanged" RowHeight="40">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        </StackPanel>
+
+</Window>
