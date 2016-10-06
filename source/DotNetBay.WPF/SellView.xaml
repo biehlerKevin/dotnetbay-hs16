@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:DotNetBay.WPF"
         mc:Ignorable="d"
         Title="SellView" Height="300" Width="300">
-    <Grid>
+    <Grid Margin ="10,10,10,10" HorizontalAlignment="Left">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+
+        <Label>
+            <Label.RenderTransform>
+                <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
+            </Label.RenderTransform>
+        Add New Auction</Label>
+        <Label Grid.Row ="1">Title</Label>
+        <TextBox Grid.Row ="1" Grid.Column="1" HorizontalAlignment="Right">TitleText</TextBox>
         
     </Grid>
+
 </Window>

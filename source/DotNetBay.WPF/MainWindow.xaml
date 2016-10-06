@@ -10,12 +10,23 @@
  
 
         <StackPanel HorizontalAlignment="Left">
-            <Button>New Auction</Button>
+        <Button Width ="100" HorizontalAlignment="Left" Click="SellButtonClick">New Auction</Button>
             
-        <DataGrid Name="AuctionsDataGrid" Grid.Row="1" ItemsSource="{Binding App.Auctions}" 
+        <DataGrid Name="AuctionsDataGrid" Grid.Row="1" ItemsSource="{Binding Auctions}" 
               AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="AuctionsDataGrid_SelectionChanged" RowHeight="40">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" />
+                <DataGridTextColumn Header="Auction" Binding="{Binding Path=Title}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=IsClosed}" />
+                <DataGridTextColumn Header="Start Price" Binding="{Binding Path=StartPrice}" />
+                <DataGridTextColumn Header="Current Price" Binding="{Binding Path=CurrentPrice}" />
+                <DataGridTextColumn Header="Bids" Binding="{Binding Path=Bids}" />
+                <DataGridTextColumn Header="Starts" Binding="{Binding Path=StartDateTimeUtc}" />
+                <DataGridTextColumn Header="Ends" Binding="{Binding Path=EndDateTimeUtc}" />
+                <DataGridTextColumn Header="Seller" Binding="{Binding Path=Seller}" />
+                <DataGridTextColumn Header="Current Winner" Binding="{Binding Path=?}" />
+                <DataGridTextColumn Header="Closed" Binding="{Binding Path=IsClosed}" />
+                <DataGridTextColumn Header="Winner" Binding="{Binding Path=Winner}" />
+                <DataGridTextColumn Header="Place Bid" Binding="{Binding Path=?}" />
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>
