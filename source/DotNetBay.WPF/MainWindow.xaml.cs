@@ -52,5 +52,12 @@ namespace DotNetBay.WPF
             var sellView = new SellView();
             sellView.ShowDialog(); // Blocking
         }
+
+        private void OnAuctionItemClick(object sender, RoutedEventArgs e)
+        {
+            var auction = ((Button)sender).DataContext as Auction;
+            var bidView = new BidView(auction);
+            bidView.ShowDialog();
+        }
     }
 }

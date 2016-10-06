@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace DotNetBay.WPF
 {
@@ -19,9 +20,21 @@ namespace DotNetBay.WPF
     /// </summary>
     public partial class SellView : Window
     {
+        public string ImageFileName { get; set; }
         public SellView()
         {
             InitializeComponent();
+            ImageFileName = "...";
+            DataContext = this;
+        }
+
+        private void AddImageButtonClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                ImageFileName = openFileDialog.FileName;
+            }
         }
     }
 }

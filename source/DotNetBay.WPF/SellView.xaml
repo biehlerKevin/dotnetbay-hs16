@@ -6,32 +6,49 @@
         xmlns:local="clr-namespace:DotNetBay.WPF"
         mc:Ignorable="d"
         Title="SellView" Height="300" Width="300">
-    <Grid Margin ="10,10,10,10" HorizontalAlignment="Left">
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-
-
-        <Label>
-            <Label.RenderTransform>
-                <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
-            </Label.RenderTransform>
-        Add New Auction</Label>
-        <Label Grid.Row ="1">Title</Label>
-        <TextBox Grid.Row ="1" Grid.Column="1" HorizontalAlignment="Right">TitleText</TextBox>
-        
-    </Grid>
+    <DockPanel Margin="5">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Add New Auction" FontSize="16" FontWeight="Bold"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Title"/>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Description"/>
+            <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="60" />
+            <Label Grid.Row="3" Grid.Column="0" Content="Start Price"/>
+            <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
+            <Label Grid.Row="4" Grid.Column="0" Content="Start"/>
+            <DatePicker Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
+            <Label Grid.Row="5" Grid.Column="0" Content="End"/>
+            <DatePicker Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
+            <Label Grid.Row="6" Grid.Column="0" Content="Image"/>
+            <Grid Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding Path=ImageFileName}" />
+                <Button Grid.Column="1" Height="20" Width="20" Content="..." Click="AddImageButtonClick"/>
+            </Grid>
+        </Grid>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button HorizontalAlignment="Right" Content="Add Auction" VerticalAlignment="Bottom" Margin="0,0,5,0"></Button>
+            <Button HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Bottom"></Button>
+        </StackPanel>
+    </DockPanel>
 
 </Window>

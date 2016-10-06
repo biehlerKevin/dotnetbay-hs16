@@ -6,7 +6,38 @@
         xmlns:local="clr-namespace:DotNetBay.WPF"
         mc:Ignorable="d"
         Title="BidView" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <DockPanel Margin="5">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Place Bid For Auction" FontSize="16" FontWeight="Bold"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Title"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=Title}"/>
+            <Image Grid.Row="2" Grid.Column="1"></Image>
+            <Label Grid.Row="3" Grid.Column="0" Content="Description"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Description}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Start Price"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=StartPrice}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Current Price"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=CurrentPrice}"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Your Bid"/>
+            <Label Grid.Row="6" Grid.Column="1" />
+
+        </Grid>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button HorizontalAlignment="Right" Content="Place Bid" VerticalAlignment="Bottom" Margin="0,0,5,0"></Button>
+            <Button HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Bottom"></Button>
+        </StackPanel>
+    </DockPanel>
 </Window>

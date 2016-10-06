@@ -22,11 +22,18 @@
                 <DataGridTextColumn Header="Bids" Binding="{Binding Path=Bids}" />
                 <DataGridTextColumn Header="Starts" Binding="{Binding Path=StartDateTimeUtc}" />
                 <DataGridTextColumn Header="Ends" Binding="{Binding Path=EndDateTimeUtc}" />
-                <DataGridTextColumn Header="Seller" Binding="{Binding Path=Seller}" />
-                <DataGridTextColumn Header="Current Winner" Binding="{Binding Path=?}" />
+                <DataGridTextColumn Header="Seller" Binding="{Binding Path=Seller.DisplayName}" />
+                <DataGridTextColumn Header="Current Winner" Binding="{Binding Path=ActiveBid.Bidder.DisplayName}" />
                 <DataGridTextColumn Header="Closed" Binding="{Binding Path=IsClosed}" />
                 <DataGridTextColumn Header="Winner" Binding="{Binding Path=Winner}" />
-                <DataGridTextColumn Header="Place Bid" Binding="{Binding Path=?}" />
+                
+                <DataGridTemplateColumn Header="Place Bid">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="OnAuctionItemClick"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>

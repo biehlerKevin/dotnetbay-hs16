@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DotNetBay.Data.Entity;
 
 namespace DotNetBay.WPF
 {
@@ -19,9 +20,11 @@ namespace DotNetBay.WPF
     /// </summary>
     public partial class BidView : Window
     {
-        public BidView()
+        public BidView(Auction auction)
         {
             InitializeComponent();
+            Console.WriteLine(auction.Description);
+            DataContext = auction;
         }
     }
 }
