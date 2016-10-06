@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BooleanToStatusTextConverter.cs" />
     <Compile Include="SellView.xaml.cs">
       <DependentUpon>SellView.xaml</DependentUpon>
     </Compile>

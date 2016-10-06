@@ -26,5 +26,10 @@ namespace DotNetBay.WPF
             Console.WriteLine(auction.Description);
             DataContext = auction;
         }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

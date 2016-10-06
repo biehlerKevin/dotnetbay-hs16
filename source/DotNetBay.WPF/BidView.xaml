@@ -37,7 +37,7 @@
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button HorizontalAlignment="Right" Content="Place Bid" VerticalAlignment="Bottom" Margin="0,0,5,0"></Button>
-            <Button HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Bottom"></Button>
+            <Button HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Bottom" Click="CloseClick"></Button>
         </StackPanel>
     </DockPanel>
 </Window>

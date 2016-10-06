@@ -6,17 +6,30 @@
         xmlns:local="clr-namespace:DotNetBay.WPF"
         d:DataContext="{d:DesignInstance Type=local:MainWindow}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
- 
+        Title="MainWindow" Height="350" Width="1100">
+    <Window.Resources>
+        <local:BooleanToStatusTextConverter x:Key="BooleanToStatusTextConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
 
-        <StackPanel HorizontalAlignment="Left">
+
+    <StackPanel HorizontalAlignment="Left">
         <Button Width ="100" HorizontalAlignment="Left" Click="SellButtonClick">New Auction</Button>
             
         <DataGrid Name="AuctionsDataGrid" Grid.Row="1" ItemsSource="{Binding Auctions}" 
               AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="AuctionsDataGrid_SelectionChanged" RowHeight="40">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Auction" Binding="{Binding Path=Title}" />
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=IsClosed}" />
+                <DataGridTemplateColumn Header="Auction">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path = Title}" FontWeight="Bold" ></TextBlock>
+                                <!--<Image Source="{Binding Path = Image}" MaxHeight="100" MaxWidth="120"></Image> ??Image is byte array?? -->
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=IsClosed, Converter={StaticResource BooleanToStatusTextConverter}}" />
                 <DataGridTextColumn Header="Start Price" Binding="{Binding Path=StartPrice}" />
                 <DataGridTextColumn Header="Current Price" Binding="{Binding Path=CurrentPrice}" />
                 <DataGridTextColumn Header="Bids" Binding="{Binding Path=Bids}" />
@@ -26,14 +39,16 @@
                 <DataGridTextColumn Header="Current Winner" Binding="{Binding Path=ActiveBid.Bidder.DisplayName}" />
                 <DataGridTextColumn Header="Closed" Binding="{Binding Path=IsClosed}" />
                 <DataGridTextColumn Header="Winner" Binding="{Binding Path=Winner}" />
-                
+
                 <DataGridTemplateColumn Header="Place Bid">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="OnAuctionItemClick"></Button>
+                            <!-- Binding to IsRunning doesnt work so Button doesnt deactivate-->
+                            <Button Background ="Green" Click="OnAuctionItemClick" Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}">>Buy</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>

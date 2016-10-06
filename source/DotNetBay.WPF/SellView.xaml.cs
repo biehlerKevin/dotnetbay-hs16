@@ -36,5 +36,10 @@ namespace DotNetBay.WPF
                 ImageFileName = openFileDialog.FileName;
             }
         }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
