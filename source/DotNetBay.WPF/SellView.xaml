@@ -23,15 +23,15 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Add New Auction" FontSize="16" FontWeight="Bold"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Title"/>
-            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
+            <TextBox Name="TitleBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
             <Label Grid.Row="2" Grid.Column="0" Content="Description"/>
-            <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="60" />
+            <TextBox Name="DescriptionBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="60" />
             <Label Grid.Row="3" Grid.Column="0" Content="Start Price"/>
-            <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
+            <TextBox Name="PriceBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
             <Label Grid.Row="4" Grid.Column="0" Content="Start"/>
-            <DatePicker Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
+            <DatePicker Name="StartDate" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
             <Label Grid.Row="5" Grid.Column="0" Content="End"/>
-            <DatePicker Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
+            <DatePicker Name="EndDate" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
             <Label Grid.Row="6" Grid.Column="0" Content="Image"/>
             <Grid Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
             </Grid>
         </Grid>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button HorizontalAlignment="Right" Content="Add Auction" VerticalAlignment="Bottom" Margin="0,0,5,0"></Button>
+            <Button HorizontalAlignment="Right" Content="Add Auction" VerticalAlignment="Bottom" Margin="0,0,5,0" Click="SellClick"></Button>
             <Button HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Bottom" Click="CloseClick"></Button>
         </StackPanel>
     </DockPanel>

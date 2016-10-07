@@ -44,7 +44,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <!-- Binding to IsRunning doesnt work so Button doesnt deactivate-->
-                            <Button Background ="Green" Click="OnAuctionItemClick" Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}">>Buy</Button>
+                            <Button Background ="Green" Click="OnAuctionItemClick" Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}">Buy</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
