@@ -69,7 +69,7 @@ namespace DotNetBay.WPF
             DateTime start;
             if (DateTime.TryParse(StartDate.Text, out start))
             {
-                if (start<DateTime.Now)
+                if (start>=DateTime.Now)
                 {
                     Console.WriteLine("Can't pick a date in the past");
                     return;
@@ -105,7 +105,7 @@ namespace DotNetBay.WPF
                 Image = null
             };
 
-            //Hinzufügen zur ObservableCollection???
+            (Application.Current as App).AuctionService.Save(auction);
 
             this.Close();
 }

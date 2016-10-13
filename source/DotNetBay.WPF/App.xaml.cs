@@ -29,6 +29,7 @@ namespace DotNetBay.WPF
             this.AuctionRunner.Start();
 
 
+
             var memberService = new SimpleMemberService(App.MainRepository);
             var service = new AuctionService(App.MainRepository, memberService);
             if (!service.GetAll().Any())
@@ -43,6 +44,6 @@ namespace DotNetBay.WPF
         }
 
 
-
+        public IAuctionService AuctionService { get; }
     }
 }
